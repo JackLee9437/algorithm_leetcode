@@ -9,7 +9,7 @@ class Solution:
         
         for i in range(2, int(n ** (1/2))+1) :
             if primes[i] :
-                for j in range(i*2, n, i) :
+                for j in range(i*i, n, i) :
                     primes[j] = False
         
         

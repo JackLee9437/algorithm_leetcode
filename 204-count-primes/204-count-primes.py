@@ -6,6 +6,7 @@ class Solution:
         primes = [True] * n
         primes[0] = primes[1] = False
         
+        
         for i in range(2, int(n ** (1/2))+1) :
             if primes[i] :
                 for j in range(i*2, n, i) :

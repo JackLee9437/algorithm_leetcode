@@ -1,24 +1,29 @@
 from random import randint
 
 class RandomizedSet:
-
     def __init__(self):
-        self.set = set()
+        self.li = []
+        self.set = {}
 
     def insert(self, val: int) -> bool:
         if val not in self.set :
-            self.set.add(val)
+            self.li.append(val)
+            self.set[val] = len(self.li)-1
             return True
         return False
 
     def remove(self, val: int) -> bool:
         if val in self.set :
-            self.set.discard(val)
+            idx = self.set[val]
+            self.li[idx] = self.li[-1]
+            self.set[self.li[-1]] = idx
+            self.li.pop()
+            del self.set[val]
             return True
         return False
 
     def getRandom(self) -> int:
-        return list(self.set)[randint(0, len(self.set)-1)]
+        return self.li[randint(0, len(self.li)-1)]
 
 
 # Your RandomizedSet object will be instantiated and called as such:

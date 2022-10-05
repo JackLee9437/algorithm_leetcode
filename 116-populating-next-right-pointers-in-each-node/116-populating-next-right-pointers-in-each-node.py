@@ -8,22 +8,22 @@ class Node:
         self.next = next
 """
 
-from collections import deque
-
 class Solution:
     def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
         if not root :
             return root
         
-        que = deque([(root, 0)])
-        while que :
-            node, level = que.popleft()
-            if que and que[0][1] == level :
-                node.next = que[0][0]
-            
-            if node.left :
-                que.append((node.left, level+1))
-            if node.right :
-                que.append((node.right, level+1))
+        def populate(a, b) :
+            if a and b :
+                a.next = b
+                populate(a.left, a.right)
+                populate(a.right, b.left)
+                populate(b.left, b.right)
+            elif a :
+                populate(a.left, a.right)
+            elif b :
+                populate(b.left, b.right)
+        
+        populate(root.left, root.right)
         
         return root

@@ -11,10 +11,8 @@ class Solution:
         return self.nums
         
     def shuffle(self) -> List[int]:
-        tmp = self.origin[:]
-        shuffle(self.origin)
-        self.nums = self.origin
-        self.origin = tmp
+        self.nums = self.origin[:]
+        shuffle(self.nums)
         return self.nums
         
 

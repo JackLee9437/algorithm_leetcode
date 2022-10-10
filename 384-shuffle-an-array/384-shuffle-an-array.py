@@ -7,8 +7,7 @@ class Solution:
         self.origin = nums[:]
 
     def reset(self) -> List[int]:
-        self.nums = self.origin[:]
-        return self.nums
+        return self.origin
         
     def shuffle(self) -> List[int]:
         shuffle(self.nums)

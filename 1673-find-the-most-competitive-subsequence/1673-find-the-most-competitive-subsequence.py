@@ -8,7 +8,7 @@ class Solution:
             if len(rst) < k :
                 rst.append(nums[i])
             i += 1
-        print(rst)
+
         if len(rst) < k :
             rst += nums[len(rst)-k:]
         

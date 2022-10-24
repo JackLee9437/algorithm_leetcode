@@ -11,7 +11,7 @@ class Solution:
         arr.sort()
         for i in range(1, len(arr)) :
             for j in range(i) :
-                if (not arr[i] % arr[j]) and (arr[i] // arr[j]) in dp :
-                    dp[arr[i]] += dp[arr[j]] * dp[arr[i]//arr[j]]
+                if (not arr[i] % arr[j]) and (tmp:= arr[i] // arr[j]) in dp :
+                    dp[arr[i]] += dp[arr[j]] * dp[tmp]
         
         return sum(dp.values()) % MOD

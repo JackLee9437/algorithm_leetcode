@@ -8,13 +8,10 @@ class Solution:
         for n in arr :
             dp[n] += 1
         
-        candidates = []
-        for i in range(len(arr)) :
-            for j in range(len(arr)) :
-                if (mult := arr[i] * arr[j]) in dp :
-                    candidates.append((arr[i], arr[j], mult))
-        candidates.sort(key=lambda x : x[2])
-        for a, b, val in candidates :
-            dp[val] += dp[a] * dp[b]
+        arr.sort()
+        for i in range(1, len(arr)) :
+            for j in range(i) :
+                if (not arr[i] % arr[j]) and (arr[i] // arr[j]) in dp :
+                    dp[arr[i]] += dp[arr[j]] * dp[arr[i]//arr[j]]
         
         return sum(dp.values()) % MOD

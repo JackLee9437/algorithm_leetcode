@@ -1,5 +1,8 @@
 class Solution:
     def checkStraightLine(self, coordinates: List[List[int]]) -> bool:
+        if len(coordinates) == 2 :
+            return True
+        
         getSlope = lambda a, b : (b[1]-a[1]) / (b[0]-a[0]) if b[0]-a[0] != 0 else int(1e9)
         
         slopes = set()

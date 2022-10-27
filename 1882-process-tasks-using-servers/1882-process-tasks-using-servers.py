@@ -25,6 +25,7 @@ class Solution:
                 heappush(procServers, (t+task, server))
         
         while que :
+            t = procServers[0][0]
             while procServers and procServers[0][0] <= t :
                 server = heappop(procServers)[1]
                 heappush(freeServers, (servers[server], server))
@@ -34,7 +35,6 @@ class Solution:
                 task = que.popleft()
                 ans.append(server)
                 heappush(procServers, (t+task, server))
-            t = procServers[0][0]
         
         return ans
                 

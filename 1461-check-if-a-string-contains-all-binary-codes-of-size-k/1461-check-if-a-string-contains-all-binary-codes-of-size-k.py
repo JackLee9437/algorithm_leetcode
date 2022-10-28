@@ -8,11 +8,12 @@ class Solution:
             window.append(s[i])
         
         binCodes = set()
+        target = 2 ** k
         for i in range(k-1, len(s)) :
             window.append(s[i])
             binCodes.add(''.join(window))
+            if len(binCodes) == target :
+                return True    
             window.popleft()
         
-        if len(binCodes) == 2 ** k :
-            return True
         return False

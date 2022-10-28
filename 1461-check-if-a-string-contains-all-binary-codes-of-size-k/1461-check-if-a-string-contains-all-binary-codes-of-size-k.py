@@ -4,9 +4,7 @@ class Solution:
     def hasAllCodes(self, s: str, k: int) -> bool:
         window = deque()
         
-        for i in range(k-1) :
-            if i >= len(s) :
-                break
+        for i in range(min(k-1, len(s))) :
             window.append(s[i])
         
         binCodes = set()

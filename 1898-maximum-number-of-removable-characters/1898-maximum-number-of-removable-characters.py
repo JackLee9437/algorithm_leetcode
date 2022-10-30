@@ -19,9 +19,9 @@ class Solution:
         left, right = 0, len(removable)
         while left <= right :
             mid = (left+right) // 2
-            # if len(s) - mid < len(p) :
-            #     right = mid - 1
-            #     continue
+            if len(s) - mid < len(p) :
+                right = mid - 1
+                continue
             if check(mid) :
                 answer = mid
                 left = mid + 1

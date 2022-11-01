@@ -2,7 +2,16 @@ from collections import Counter
 
 class Solution:
     def numSmallerByFrequency(self, queries: List[str], words: List[str]) -> List[int]:
-        f = lambda s : sorted(Counter(s).items())[0][1]
+        def f(s) :
+            sc = 'z'
+            count = 0
+            for c in s :
+                if c < sc :
+                    sc = c
+                    count = 1
+                elif c == sc :
+                    count += 1
+            return count
         
         for q in range(len(queries)) :
             queries[q] = f(queries[q])

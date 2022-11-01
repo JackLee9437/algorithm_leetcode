@@ -3,17 +3,17 @@ class Solution:
         answer = []
         
         for query in queries :
-            i = 0
-            for alpha in query :
+            i = j = 0
+            while j < len(query) :
+                alpha = query[j]
                 if i < len(pattern) and alpha == pattern[i] :
                     i += 1
                 elif ord(alpha) < ord('a') :
-                    answer.append(False)
                     break
+                j += 1
+            if i < len(pattern) or j < len(query):
+                answer.append(False)
             else :
-                if i < len(pattern) :
-                    answer.append(False)
-                else :
-                    answer.append(True)
+                answer.append(True)
         
         return answer

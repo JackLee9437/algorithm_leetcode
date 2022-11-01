@@ -13,16 +13,14 @@ class Solution:
                     count += 1
             return count
         
-        for q in range(len(queries)) :
-            queries[q] = f(queries[q])
-        
         for w in range(len(words)) :
             words[w] = f(words[w])
         
         answer = [0] * len(queries)
         for i in range(len(queries)) :
+            cur = f(queries[i])
             for j in range(len(words)) :
-                if queries[i] < words[j] :
+                if cur < words[j] :
                     answer[i] += 1
         
         return answer

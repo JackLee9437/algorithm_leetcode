@@ -1,15 +1,15 @@
 class Solution:
     def minInsertions(self, s: str) -> int:
-        stk = []
+        opencnt = 0
         
         answer = 0
         i = 0
         while i < len(s) :
             if s[i] == "(" :
-                stk.append(1)
+                opencnt += 1
             else :
-                if stk :
-                    stk.pop()
+                if opencnt :
+                    opencnt -= 1
                 else :
                     answer += 1
                 if i == len(s)-1 or s[i+1] != ')':
@@ -18,7 +18,7 @@ class Solution:
                     i += 1  
             i += 1
         
-        if stk :
-            answer += len(stk) * 2
+        if opencnt :
+            answer += opencnt * 2
         
         return answer

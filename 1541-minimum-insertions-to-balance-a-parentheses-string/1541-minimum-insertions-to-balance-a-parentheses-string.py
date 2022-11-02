@@ -13,7 +13,7 @@ class Solution:
                 else :
                     answer += 1
                 if i == len(s)-1 or s[i+1] != ')':
-                        answer += 1
+                    answer += 1
                 else :
                     i += 1  
             i += 1
